@@ -1,0 +1,24 @@
+table {
+    border-collapse: collapse;
+}
+
+table, td,tr {
+    border: 1px solid black;
+}
+
+tr {
+    height: 100px;
+}
+
+td {
+    height: 100px;
+    width:200px;
+}
+
+.not-current {
+    background-color:gray;
+}
+
+.has-value {
+    background-color:lightgreen;
+}
