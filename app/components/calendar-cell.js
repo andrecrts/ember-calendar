@@ -12,8 +12,9 @@ export default Ember.Component.extend({
     click() {
         var date = this.get('day.date'); //YYYY-MM-DD
         if(this.get('day.currMonth') && moment().isSameOrAfter(date)){
-            var prevValue = this.get('day.value');
-            this.set('day.value',!prevValue);
+            var value = !this.get('day.value');
+            this.set('day.value',value);
+            this.get('mark')(date, value)
         }
 }
 });

@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    calendarSorting:['name'],
+    calendarSorting:['count:desc'],
     sortedCalendars:Ember.computed.sort('model', 'calendarSorting')
 });

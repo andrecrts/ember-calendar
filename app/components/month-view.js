@@ -13,7 +13,6 @@ function getValue(days,dayObj) {
 
 export default Ember.Component.extend({
     weeks: Ember.computed('days',function() {
-
         return DS.PromiseArray.create({
             promise: this.get('days').then(function(days){
                 var day = moment().date(1);
@@ -44,8 +43,22 @@ export default Ember.Component.extend({
                 return weeks;
             })
         });
+    }),
+  store: Ember.inject.service(),
+  actions:{
+    markDay(date, value) {
+      let existingRecord = this.get('days').filterBy('date',date)[0]
 
-
-
-    })
+      if(existingRecord) {
+        existingRecord.set('value',value)
+        existingRecord.save()
+      } else {
+        let newRecord = this.get('store').createRecord('day',{
+          date, value
+        })
+        this.get('days').pushObject(newRecord)
+        newRecord.save()
+      }
+    }
+  }
 });

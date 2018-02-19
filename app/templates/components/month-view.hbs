@@ -14,7 +14,7 @@
         {{#each weeks as |week|}}
             <tr>
                 {{#each week as |day|}}
-                    {{calendar-cell day=day}}
+                    {{calendar-cell day=day mark=(action 'markDay')}}
                 {{/each}}
             </tr>
         {{/each}}
