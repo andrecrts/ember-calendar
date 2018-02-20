@@ -10,7 +10,7 @@ Router.map(function() {
   this.route('new', {
     path: '/calendars/new'
   });
-    this.route('calendars');
+  this.route('calendars');
 
   this.route('calendar', {
     path: '/calendars/:calendar_id'
@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('edit', {
     path: '/calendars/:calendar_id/edit'
   });
+  this.route('login');
 });
 
 export default Router;
